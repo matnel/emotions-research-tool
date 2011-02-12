@@ -4,8 +4,37 @@
 <script type='text/javascript' src='./lib/jquery.js' ></script>
 <script type='text/javascript' src='./lib/jquery-ui.js' ></script>
 <link type='text/css' rel='stylesheet' href='./lib/jquery-theme/smoothness/jquery-ui-1.8.7.custom.css' /> 
-<link type='text/css' rel='stylesheet' href='./lib/jquery-theme/jquery-timepicker.css' />
 <body>
+
+<img id='map' src='./emotions.jpg' />
+
+<script type='text/javascript'>
+
+$(document).ready( function() {
+
+$('#map').click( function(event) {
+	var x = event.pageX;
+	var y = event.pageY;
+	// calculate real x, y based on maps position
+	x = x - $('#map').position().top;
+	y = y - $('#map').position().left;
+	var div = $('<div>');
+	div.append( 'X:' + x + ' Y: ' + y + '<br/>' );
+	div.append( 'Organisaation nimi' );
+	div.append( $('<input>') );
+	div.append( 'Miksi?<br/>' );
+	div.append( $('<textarea>') );
+
+	div.dialog( {
+		buttons : {
+			'Valmis' : function(){ $(this).dialog('close'); },
+			'Peru'   : function(){ $(this).dialog('close'); }
+		}
+	} );
+} );
+
+} );
+</script>
 
 </body>
 </html>
