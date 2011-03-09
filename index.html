@@ -21,13 +21,10 @@ $('#map').click( function(event) {
 	var height = $('#map').height();
 	var width = $('#map').width();
 	// calculate real x, y based on maps position
-	console.log( x );
-	console.log( $('#map').position().top );
-	// x = x - $('#map').position().top;
-	console.log( x );
-	var x0 = x - height / 2;
-	// y = y - $('#map').position().left;
-	var y0 = y - width / 2;
+	x = x - $('#map').position().left;
+	var x0 = x - width / 2;
+	y = y - $('#map').position().top;
+	var y0 = (height / 2) - y;
 	var div = $('<div>');
 	div.append( 'X:' + x0 + ' Y: ' + y0 + '<br/>' );
 	div.append( 'Organisaation nimi' );
@@ -35,7 +32,6 @@ $('#map').click( function(event) {
 	div.append( name );
 	div.append( 'Miksi?<br/>' );
 	div.append( $('<textarea>') );
-	console.log( x );
 
 	div.dialog( {
 		buttons : {
@@ -44,7 +40,7 @@ $('#map').click( function(event) {
 				$(this).remove();
 				var point = $('<div>' , { style: 'position: absolute; z-index: 10; height: 10px; width: 10px;' });
 				console.log( name.val() );
-				point.html( name.val() + ' (' + x0 + ',' + y0 + ')' );
+				point.html( name.val() + ' (' + x0 + ',' + y0 + ') (' + x + ',' + y + ')' );
 				point.css( { 'top' : y, 'left' : x } );
 				$('#map-container').append( point );
 			},
