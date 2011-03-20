@@ -1,16 +1,16 @@
 <?php
 	/* server  ip */
-	$server = 'localhost';
+	$MYSQL_SERVER = 'localhost';
 
 	/* mysql username */
-	$username = '';
+	$MYSQL_USER = '';
 
 	/* mysql user password */
-	$password = '';
+	$MYSQL_PASSWORD = '';
 
 	/* mysql database */
-	$database = '';
+	$MYSQL_DATABASE = '';
 
 	/* mysql table */
-	$table = '';
+	$MYSQL_TABLE = 'emotions';
 ?>
