@@ -15,7 +15,6 @@
 $(document).ready( function() {
 
 $('#map').click( function(event) {
-	console.log( event );
 	var x = event.pageX;
 	var y = event.pageY;
 	var height = $('#map').height();
@@ -39,7 +38,6 @@ $('#map').click( function(event) {
 				$(this).dialog('close');
 				$(this).remove();
 				var point = $('<div>' , { style: 'position: absolute; z-index: 10; height: 10px; width: 10px;' });
-				console.log( name.val() );
 				point.html( name.val() + ' (' + x0 + ',' + y0 + ') (' + x + ',' + y + ')' );
 				point.css( { 'top' : y, 'left' : x } );
 				$('#map-container').append( point );
