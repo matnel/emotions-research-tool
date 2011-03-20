@@ -30,7 +30,8 @@ $('#map').click( function(event) {
 	var name = $('<input>', { id: 'name' });
 	div.append( name );
 	div.append( 'Miksi?<br/>' );
-	div.append( $('<textarea>') );
+	var explain = $('<textarea>' , {id : 'explain' } );
+	div.append( explain );
 
 	div.dialog( {
 		buttons : {
@@ -41,6 +42,7 @@ $('#map').click( function(event) {
 				point.html( name.val() + ' (' + x0 + ',' + y0 + ') (' + x + ',' + y + ')' );
 				point.css( { 'top' : y, 'left' : x } );
 				$('#map-container').append( point );
+				$.get( './datalog/log.php' , { x : x0 , y : y0, data : name.val() + '|' + explain.val(), debug : true } );
 			},
 			'Peru'   : function(){ $(this).dialog('close'); $(this).remove(); }
 		}
