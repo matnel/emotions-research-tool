@@ -33,18 +33,23 @@ $('#map').click( function(event) {
 	var explain = $('<textarea>' , {id : 'explain' } );
 	div.append( explain );
 
+	var point = $('<div>' , { style: 'position: absolute; z-index: 10; height: 10px; width: 10px; background: blue;' });
+	point.css( { 'top' : y, 'left' : x } );
+	$('#map-container').append( point );
+
 	div.dialog( {
 		buttons : {
 			'Valmis' : function(){
 				$(this).dialog('close');
 				$(this).remove();
-				var point = $('<div>' , { style: 'position: absolute; z-index: 10; height: 10px; width: 10px;' });
 				point.html( name.val() + ' (' + x0 + ',' + y0 + ') (' + x + ',' + y + ')' );
-				point.css( { 'top' : y, 'left' : x } );
-				$('#map-container').append( point );
 				$.get( './datalog/log.php' , { x : x0 , y : y0, data : name.val() + '|' + explain.val(), debug : true } );
 			},
-			'Peru'   : function(){ $(this).dialog('close'); $(this).remove(); }
+			'Peru'   : function(){
+					$(this).dialog('close');
+					$(this).remove();
+					point.remove();
+			}
 		}
 	} );
 } );
