@@ -25,7 +25,6 @@ $('#map').click( function(event) {
 	y = y - $('#map').position().top;
 	var y0 = (height / 2) - y;
 	var div = $('<div>');
-	div.append( 'X:' + x0 + ' Y: ' + y0 + '<br/>' );
 	div.append( 'Organisaation nimi' );
 	var name = $('<input>', { id: 'name' });
 	div.append( name );
@@ -42,7 +41,7 @@ $('#map').click( function(event) {
 			'Valmis' : function(){
 				$(this).dialog('close');
 				$(this).remove();
-				point.html( name.val() + ' (' + x0 + ',' + y0 + ') (' + x + ',' + y + ')' );
+				point.html( name.val() );
 				$.get( './datalog/log.php' , { x : x0 , y : y0, data : name.val() + '|' + explain.val(), debug : true } );
 			},
 			'Peru'   : function(){
