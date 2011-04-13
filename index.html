@@ -12,6 +12,8 @@
 
 <script type='text/javascript'>
 
+var SAM_COUNT = 9;
+
 $(document).ready( function() {
 
 $('#map').click( function(event) {
@@ -60,11 +62,24 @@ $("#map").mousemove(function(e){
         var y = event.pageY;
         x = x - $('#map').position().left;
         y = y - $('#map').position().top;
-	var xSam = $('<div>', { class : 'sam' , style: 'position: absolute; z-index: 15; height: 10px; width: 10px; background: blue;' });
-       	xSam.css( { 'top' : y, 'left' : $('#map').width() / 2 } );
+
+	// calcule the correct sam
+	var width = $('#map').width();
+	var height = $('#map').height();
+
+	var perX = width / (SAM_COUNT - 1);
+	var xSamFig = Math.ceil( x / perX );
+
+        var perY = height / (SAM_COUNT - 1);
+        var ySamFig = Math.ceil( y / perY );
+	ySamFig = SAM_COUNT - ySamFig;
+
+	var xSam = $('<img>', { src : './sam/SAM-arousal-' + ySamFig + '.png' , class : 'sam' , style: 'position: absolute; z-index: 15; height: 75px; width: 50px; background: blue;' });
+       	xSam.css( { 'top' : y, 'left' : width / 2 } );
 	$('#map-container').append( xSam );
-	var ySam = $('<div>', { class : 'sam' , style: 'position: absolute; z-index: 15; height: 10px; width: 10px; background: blue;' });
-	ySam.css( { 'top' : $('#map').height() / 2, 'left' : x } );
+
+	var ySam = $('<img>', { src : './sam/SAM-valenssi-' + xSamFig + '.png', class : 'sam' , style: 'position: absolute; z-index: 15; height: 75px; width: 50px; background: blue;' });
+	ySam.css( { 'top' : height / 2, 'left' : x } );
 	$('#map-container').append( ySam );
 });
 
