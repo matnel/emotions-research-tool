@@ -61,11 +61,11 @@ $("#map").mousemove(function(e){
         x = x - $('#map').position().left;
         y = y - $('#map').position().top;
 	var xSam = $('<div>', { class : 'sam' , style: 'position: absolute; z-index: 15; height: 10px; width: 10px; background: blue;' });
-       	xSam.css( { 'top' : 0, 'left' : x } );
-	$('body').append( xSam );
+       	xSam.css( { 'top' : y, 'left' : $('#map').width() / 2 } );
+	$('#map-container').append( xSam );
 	var ySam = $('<div>', { class : 'sam' , style: 'position: absolute; z-index: 15; height: 10px; width: 10px; background: blue;' });
-	ySam.css( { 'top' : y, 'left' : 0 } );
-	$('body').append( ySam );
+	ySam.css( { 'top' : $('#map').height() / 2, 'left' : x } );
+	$('#map-container').append( ySam );
 });
 
 } );
