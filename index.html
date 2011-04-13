@@ -54,6 +54,20 @@ $('#map').click( function(event) {
 	} );
 } );
 
+$("#map").mousemove(function(e){
+	$('.sam').remove();
+        var x = event.pageX;
+        var y = event.pageY;
+        x = x - $('#map').position().left;
+        y = y - $('#map').position().top;
+	var xSam = $('<div>', { class : 'sam' , style: 'position: absolute; z-index: 15; height: 10px; width: 10px; background: blue;' });
+       	xSam.css( { 'top' : 0, 'left' : x } );
+	$('body').append( xSam );
+	var ySam = $('<div>', { class : 'sam' , style: 'position: absolute; z-index: 15; height: 10px; width: 10px; background: blue;' });
+	ySam.css( { 'top' : y, 'left' : 0 } );
+	$('body').append( ySam );
+});
+
 } );
 </script>
 
