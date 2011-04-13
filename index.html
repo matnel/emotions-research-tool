@@ -39,6 +39,7 @@ $('#map').click( function(event) {
 	div.dialog( {
 		buttons : {
 			'Valmis' : function(){
+				point.css( 'background' , 'none' );
 				$(this).dialog('close');
 				$(this).remove();
 				point.html( name.val() );
