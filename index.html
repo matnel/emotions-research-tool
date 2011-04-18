@@ -56,7 +56,7 @@ $('#map').click( function(event) {
 	} );
 } );
 
-$("#map").mousemove(function(e){
+$("#map").mousemove(function(event){
 	$('.sam').remove();
         var x = event.pageX;
         var y = event.pageY;
@@ -74,11 +74,11 @@ $("#map").mousemove(function(e){
         var ySamFig = Math.ceil( y / perY );
 	ySamFig = SAM_COUNT - ySamFig;
 
-	var xSam = $('<img>', { src : './sam/SAM-arousal-' + ySamFig + '.png' , class : 'sam' , style: 'position: absolute; z-index: 15; height: 75px; width: 50px; background: blue;' });
+	var xSam = $('<img>', { src : './sam/SAM-arousal-' + ySamFig + '.png' , class : 'sam' , style: 'position: absolute; z-index: 15; height: 75px; width: 50px' });
        	xSam.css( { 'top' : y, 'left' : width / 2 } );
 	$('#map-container').append( xSam );
 
-	var ySam = $('<img>', { src : './sam/SAM-valenssi-' + xSamFig + '.png', class : 'sam' , style: 'position: absolute; z-index: 15; height: 75px; width: 50px; background: blue;' });
+	var ySam = $('<img>', { src : './sam/SAM-valenssi-' + xSamFig + '.png', class : 'sam' , style: 'position: absolute; z-index: 15; height: 75px; width: 50px;' });
 	ySam.css( { 'top' : height / 2, 'left' : x } );
 	$('#map-container').append( ySam );
 });
