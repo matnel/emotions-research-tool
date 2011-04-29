@@ -6,7 +6,7 @@
 <link type='text/css' rel='stylesheet' href='./lib/jquery-theme/smoothness/jquery-ui-1.8.7.custom.css' /> 
 <body>
 
-<div id='map-wrapper' style='margin: 10px 50px;'>
+<div id='map-wrapper' style='background: green; height: 900px; width: 900px;'>
 
 <span id='map-container' style='position: absolute;'>
 <img id='map' src='./moods.png' ></img>
@@ -18,10 +18,7 @@
 
 var SAM_COUNT = 9;
 
-$(document).ready( function() {
-
-$('#map-wrapper').height( $('#map').height() );
-$('#map-wrapper').width( $('#map').width() );
+$( function() {
 
 $('#map').click( function(event) {
 	var x = event.pageX;
@@ -91,6 +88,11 @@ $("#map").mousemove(function(event){
 });
 
 } );
+
+function centralizePositions() {
+	$('#map-container').position( { my: 'center center', at : 'center center' , of : $('#map-wrapper') } );
+	$('#map-wrapper').position( { my: 'center center', at : 'center center' , of : $('body') } );
+}
 </script>
 
 </body>
