@@ -6,7 +6,7 @@
 <link type='text/css' rel='stylesheet' href='./lib/jquery-theme/smoothness/jquery-ui-1.8.7.custom.css' /> 
 <body>
 
-<div id='map-wrapper' style='background: green; height: 900px; width: 900px; display: none;'>
+<div id='map-wrapper' style='height: 900px; width: 900px; display: none;'>
 
 <span id='map-container' style='position: absolute;'>
 <img id='map' src='./moods.png' ></img>
@@ -97,6 +97,19 @@ function centralizePositions() {
 
 	HEIGHT = $('#map').height();
 	WIDTH = $('#map').width();
+
+	// set text indicator
+	// FIXME: Ugly
+	var c = $('#map-container');
+	$('<span>', { html : 'Aktiivinen' , class : 'explain' } ).appendTo('body').position( { my: 'center bottom', at : 'center top', of : c } );
+	$('<span>', { html : 'Passiivinen', class : 'explain' } ).appendTo('body').position( { my: 'center top', at : 'center bottom', of : c } );
+	$('<span>', { html : 'Surullinen', class : 'explain' } ).appendTo('body').position( { my: 'right center', at : 'left center', of : c } );
+	$('<span>', { html : 'Iloinen', class : 'explain' } ).appendTo('body').position( { my: 'left center', at : 'right center', of : c } );
+	$('<span>', { html : 'Hermostunut', class : 'explain' } ).appendTo('body').position( { my: 'right bottom', at : 'left top', of : c } );
+	$('<span>', { html : 'Masentunut', class : 'explain' } ).appendTo('body').position( { my: 'right top', at : 'left bottom', of : c } );
+	$('<span>', { html : 'J&auml;nnittynyt', class : 'explain' } ).appendTo('body').position( { my: 'left bottom', at : 'right top', of : c } );
+	$('<span>', { html : 'Rentoutunut', class : 'explain' } ).appendTo('body').position( { my: 'left top', at : 'right bottom', of : c } );
+
 }
 </script>
 
