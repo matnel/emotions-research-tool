@@ -6,7 +6,7 @@
 <link type='text/css' rel='stylesheet' href='./lib/jquery-theme/smoothness/jquery-ui-1.8.7.custom.css' /> 
 <body>
 
-<div id='map-wrapper'>
+<div id='map-wrapper' style='margin: 10px auto;'>
 
 <span id='map-container' style='position: absolute;'>
 <img id='map' src='./moods.png' ></img>
@@ -20,13 +20,8 @@ var SAM_COUNT = 9;
 
 $(document).ready( function() {
 
-/*
-$('#map-wrapper').position( {
-	my : 'center center',
-	at : 'center center',
-	of : $('body')
-} );
-*/
+$('#map-wrapper').height( $('#map').height() );
+$('#map-wrapper').width( $('#map').width() );
 
 $('#map').click( function(event) {
 	var x = event.pageX;
@@ -34,9 +29,9 @@ $('#map').click( function(event) {
 	var height = $('#map').height();
 	var width = $('#map').width();
 	// calculate real x, y based on maps position
-	x = x - $('#map').position().left;
+	x = x - $('#map-container').position().left;
 	var x0 = x - width / 2;
-	y = y - $('#map').position().top;
+	y = y - $('#map-container').position().top;
 	var y0 = (height / 2) - y;
 	var div = $('<div>');
 	div.append( 'Organisaation nimi' );
@@ -72,8 +67,8 @@ $("#map").mousemove(function(event){
 	$('.sam').remove();
         var x = event.pageX;
         var y = event.pageY;
-        x = x - $('#map').position().left;
-        y = y - $('#map').position().top;
+        x = x - $('#map-container').position().left;
+        y = y - $('#map-container').position().top;
 
 	// calcule the correct sam
 	var width = $('#map').width();
