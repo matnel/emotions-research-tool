@@ -12,13 +12,15 @@
 </style>
 <body>
 
-<div id='map-wrapper' style='height: 900px; width: 900px; display: none;'>
+<div id='wrapper' style='width: 400px; position: absolute; top: 250px; left: 250px;'>
+<div id='map-wrapper'>
 
 <span id='map-container' style='position: absolute;'>
 <img id='map' src='./moods.png' ></img>
 </span>
 
 <div>
+</div>
 
 <script type='text/javascript'>
 
@@ -64,11 +66,11 @@ $('#map').click( function(event) {
 } );
 
 function fixX( x ) {
-	return x - $('#map-container').position().left - $('#map-wrapper').position().left;
+	return x - $('#map-container').position().left - $('#map-wrapper').position().left - $('#wrapper').position().left;
 }
 
 function fixY( y ) {
-	return y - $('#map-container').position().top -  $('#map-wrapper').position().top;
+	return y - $('#map-container').position().top -  $('#map-wrapper').position().top - $('#wrapper').position().top;
 }
 
 $("#map").mousemove(function(event){
@@ -97,25 +99,33 @@ setTimeout( centralizePositions , 500 );
 } );
 
 function centralizePositions() {
-	$('#map-wrapper').position( { my: 'center center', at : 'center center' , of : $('body') } );
-	$('#map-wrapper').show()
-	$('#map-container').position( { my: 'center center', at : 'center center' , of : $('#map-wrapper') } );
+	// $('#map-wrapper').position( { my: 'center center', at : 'center center' , of : $('body') } );
+	// $('#map-wrapper').show()
+	// $('#map-container').position( { my: 'center center', at : 'center center' , of : $('#map-wrapper') } );
 
 	HEIGHT = $('#map').height();
 	WIDTH = $('#map').width();
 
 	// set text indicator
-	// FIXME: Ugly
-	var c = $('#map-container');
-	$('<span>', { html : 'Aktiivinen' , class : 'explain' } ).appendTo('body').position( { my: 'center bottom', at : 'center top', of : c } );
-	$('<span>', { html : 'Passiivinen', class : 'explain' } ).appendTo('body').position( { my: 'center top', at : 'center bottom', of : c } );
-	$('<span>', { html : 'Surullinen', class : 'explain' } ).appendTo('body').position( { my: 'right center', at : 'left center', of : c } );
-	$('<span>', { html : 'Iloinen', class : 'explain' } ).appendTo('body').position( { my: 'left center', at : 'right center', of : c } );
-	$('<span>', { html : 'Hermostunut', class : 'explain' } ).appendTo('body').position( { my: 'right bottom', at : 'left top', of : c } );
-	$('<span>', { html : 'Masentunut', class : 'explain' } ).appendTo('body').position( { my: 'right top', at : 'left bottom', of : c } );
-	$('<span>', { html : 'J&auml;nnittynyt', class : 'explain' } ).appendTo('body').position( { my: 'left bottom', at : 'right top', of : c } );
-	$('<span>', { html : 'Rentoutunut', class : 'explain' } ).appendTo('body').position( { my: 'left top', at : 'right bottom', of : c } );
+	var hints = [];
+	hints.push( ['Hermostunut', 'Aktiivinen', 'J&auml;nnittynyt' ] );
+	hints.push( ['Surullinen', '', 'Iloinen'] );
+	hints.push( ['Masentunut', 'Passiivinen', 'Rentoutunut' ] );
 
+	var yDir = ['top', 'center', 'bottom'];
+	var xDir = ['left', 'center', 'right'];
+	$.each( yDir, function(y) {
+		$.each( xDir, function(x) {
+			var hint = hints[y][x];
+			hint = $('<span>', { html : hint , class : 'explain' } ).
+			appendTo('body').position( 
+				{ my : xDir[2-x] + ' ' + yDir[2-y], 
+				  at : xDir[x] + ' ' + yDir[y], 
+				  of : $('#map-container'),
+				  collision : 'none'  }
+				);
+		} );
+	} );
 }
 </script>
 
