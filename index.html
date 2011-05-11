@@ -20,6 +20,13 @@ body {
 	font-family: sans-serif;
 	font-size: 30px;
 }
+
+.marker {
+	position: absolute;
+	height: 4px;
+	width: 4px;
+	background: blue;
+}
 </style>
 <body>
 
@@ -28,6 +35,8 @@ body {
 
 <span id='map-container' style='position: absolute;'>
 <img id='map' src='./moods.png' ></img>
+<div id='markerX' class='marker'></div>
+<div id='markerY' class='marker'></div>
 </span>
 
 </div>
@@ -52,6 +61,7 @@ var HEIGHT;
 var WIDTH;
 
 $( function() {
+
 
 $('#map').click( function(event) {
 	var x = fixX( event.pageX );
@@ -101,6 +111,9 @@ $("#map").mousemove(function(event){
         var x = fixX( event.pageX );
         var y = fixY( event.pageY );
 
+	$('#markerX').css('left', x + 'px');
+	$('#markerY').css('top', y + 'px');
+
 	var perX = WIDTH / SAM_COUNT;
 	var xSamFig = Math.ceil( x / perX );
 
@@ -144,6 +157,10 @@ function centralizePositions() {
 				);
 		} );
 	} );
+
+	// marker positions
+	$('#markerX').css('top' , HEIGHT / 2 + 'px' );
+	$('#markerY').css('left' , WIDTH / 2 + 'px' );
 }
 </script>
 
