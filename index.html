@@ -27,10 +27,18 @@ body {
 	width: 4px;
 	background: blue;
 }
+
+.point {
+	height: 21px;
+	width: 20px;
+	position: absolute;
+	background-image: url('star.png');
+	color: white;
+}
 </style>
 <body>
 
-<div id='wrapper' style='width: 400px; position: absolute; top: 250px; left: 250px;'>
+<div id='wrapper' style='width: 1174px; height: 756px; position: absolute; top: 250px; left: 250px; background-image: url("background.png");'>
 <div id='map-wrapper'>
 
 <span id='map-container' style='position: absolute;'>
@@ -76,14 +84,13 @@ $('#map').click( function(event) {
 	var explain = $('<textarea>' , {id : 'explain' } );
 	div.append( explain );
 
-	var point = $('<div>' , { style: 'position: absolute; z-index: 10; height: 10px; width: 10px; background: blue;' });
+	var point = $('<div>' , { class : 'point' } );
 	point.css( { 'top' : y, 'left' : x } );
 	$('#map-container').append( point );
 
 	div.dialog( {
 		buttons : {
 			'Valmis' : function(){
-				point.css( 'background' , 'none' );
 				$(this).dialog('close');
 				$(this).remove();
 				point.html( name.val() );
@@ -137,6 +144,8 @@ function centralizePositions() {
 	HEIGHT = $('#map').height();
 	WIDTH = $('#map').width();
 
+// using a background image to do this
+/*
 	// set text indicator
 	var hints = [];
 	hints.push( ['Hermostunut', 'Aktiivinen', 'J&auml;nnittynyt' ] );
@@ -157,7 +166,7 @@ function centralizePositions() {
 				);
 		} );
 	} );
-
+*/
 	// marker positions
 	$('#markerX').css('top' , HEIGHT / 2 + 'px' );
 	$('#markerY').css('left' , WIDTH / 2 + 'px' );
