@@ -19,7 +19,13 @@
 <img id='map' src='./moods.png' ></img>
 </span>
 
-<div>
+</div>
+</div>
+
+<div id='sam'>
+Tunnetilasi nyt <br/>
+<img id='sam-arousal' /> <br/> 
+<img id='sam-valence' /> <br/>
 </div>
 
 <script type='text/javascript'>
@@ -85,14 +91,9 @@ $("#map").mousemove(function(event){
         var ySamFig = Math.ceil( y / perY );
 	ySamFig = SAM_COUNT + 1 - ySamFig;
 
-	var xSam = $('<img>', { src : './sam/SAM-arousal-' + ySamFig + '.png' , class : 'sam' , style: 'position: absolute; z-index: 15; height: 75px; width: 50px' });
-       	xSam.css( { 'top' : y, 'left' : WIDTH / 2 } );
-	$('#map-container').append( xSam );
-
-	var ySam = $('<img>', { src : './sam/SAM-valenssi-' + xSamFig + '.png', class : 'sam' , style: 'position: absolute; z-index: 15; height: 75px; width: 50px;' });
-	ySam.css( { 'top' : HEIGHT / 2, 'left' : x } );
-	$('#map-container').append( ySam );
-});
+	$('#sam-arousal').attr( 'src', './sam/SAM-arousal-' + ySamFig + '.png' );
+	$('#sam-valence').attr( 'src', './sam/SAM-valenssi-' + xSamFig + '.png' )
+} );
 
 setTimeout( centralizePositions , 500 );
 
