@@ -3,13 +3,13 @@
 	$MYSQL_SERVER = 'localhost';
 
 	/* mysql username */
-	$MYSQL_USER = '';
+	$MYSQL_USER = 'labmaster';
 
 	/* mysql user password */
-	$MYSQL_PASSWORD = '';
+	$MYSQL_PASSWORD = 'labmaster';
 
 	/* mysql database */
-	$MYSQL_DATABASE = '';
+	$MYSQL_DATABASE = 'labs';
 
 	/* mysql table */
 	$MYSQL_TABLE = 'emotions';

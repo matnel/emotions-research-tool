@@ -89,10 +89,13 @@ $('#map').click( function(event) {
 	point.css( { 'top' : y, 'left' : x } );
 	$('#map-container').append( point );
 	// debug-mode
+	/*
 	if( console ) {
+		alert('Omg. Moi Salla');
 		console.log( 'x ' + x + ' y ' + y );
 		console.log( 'x0 ' + x0 + ' y0 ' + y0 );
 	}
+	*/
 
 	div.dialog( {
 		buttons : {
@@ -174,8 +177,8 @@ function centralizePositions() {
 	} );
 */
 	// marker positions
-	$('#markerX').css('top' , HEIGHT / 2 - 3 + 'px' );
-	$('#markerY').css('left' , WIDTH / 2 - 1 + 'px' );
+	$('#markerX').css('top' , HEIGHT / 2 - 2 + 'px' );
+	$('#markerY').css('left' , WIDTH / 2 + 1 + 'px' );
 }
 </script>
 
