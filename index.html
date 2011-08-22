@@ -35,7 +35,8 @@ body {
 	width: 20px;
 	position: absolute;
 	background-image: url('star.png');
-	color: white;
+	color: black;
+	background: white;
 }
 
 #wrapper {
@@ -45,7 +46,7 @@ body {
 </style>
 <body>
 
-<div id='wrapper">
+<div id='wrapper'>
 
 <div id='wrapper-d' style='width: 1174px; height: 756px; position: absolute; top: 250px; left: 250px; background-image: url("background.png");'>
 <div id='map-wrapper' style='position: relative; top: 78px; left: 270px;'>
@@ -125,11 +126,11 @@ $('#map').click( function(event) {
 } );
 
 function fixX( x ) {
-	return x - $('#map-container').position().left - $('#map-wrapper').position().left - $('#wrapper').position().left;
+	return x - $('#map-container').position().left - $('#map-wrapper').position().left - $('#wrapper-d').position().left;
 }
 
 function fixY( y ) {
-	return y - $('#map-container').position().top -  $('#map-wrapper').position().top - $('#wrapper').position().top;
+	return y - $('#map-container').position().top -  $('#map-wrapper').position().top - $('#wrapper-d').position().top;
 }
 
 $("#map").mousemove(function(event){
