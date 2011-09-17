@@ -53,8 +53,7 @@ body {
 
 <div id='wrapper'>
 
-<div id='map-container'>
-<div id='map'></div>
+<div id='map'>
 <div id='markerX' class='marker'></div>
 <div id='markerY' class='marker'></div>
 </div>
@@ -164,7 +163,7 @@ function centralizePositions() {
 
 	HEIGHT = $('#map').height();
 	WIDTH = $('#map').width();
-/*
+
 	// set text indicator
 	var hints = [];
 	hints.push( ['Hermostunut', 'Aktiivinen', 'J&auml;nnittynyt' ] );
@@ -180,12 +179,12 @@ function centralizePositions() {
 			appendTo('body').position( 
 				{ my : xDir[2-x] + ' ' + yDir[2-y], 
 				  at : xDir[x] + ' ' + yDir[y], 
-				  of : $('#map-container'),
+				  of : $('#map'),
 				  collision : 'none'  }
 				);
 		} );
 	} );
-*/
+
 	// marker positions
 	$('#markerX').css('top' , HEIGHT / 2 - 2 + 'px' );
 	$('#markerY').css('left' , WIDTH / 2 + 1 + 'px' );
