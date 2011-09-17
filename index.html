@@ -18,6 +18,7 @@
 	height: 400px;
 	background: pink;
 	margin: 10px auto;
+	padding: 0px;
 	border-radius: 25px;
 }
 
@@ -38,10 +39,9 @@ body {
 	min-width: 0px;
 	position: relative;
 	padding-left: 20px;
-	background-image: url('star.png');
+	background-image: url('./imgs/star.png');
 	background-repeat: no-repeat;
 	color: black;
-	background-color: white;
 }
 
 #wrapper {
@@ -51,7 +51,7 @@ body {
 </style>
 <body>
 
-<div id='wrapper'>
+<div id='wrapper' style='margin-top: 100px;'>
 
 <div id='map'>
 <div id='markerX' class='marker'></div>
@@ -97,7 +97,8 @@ $('#map').click( function(event) {
 
 	var point = $('<div>' , { class : 'point' } );
 	point.css( { 'top' : y, 'left' : x } );
-	$('#map-container').append( point );
+	$('#map').append( point );
+	
 	// debug-mode
 	/*
 	if( console ) {
@@ -139,7 +140,7 @@ $("#map").mousemove(function(event) {
         var y = fixY( event.pageY );
 
 	$('#markerX').css('left', x + 'px');
-	$('#markerY').css('top', y + 'px');
+	$('#markerY').css('top', '0px');
 
 	var perX = WIDTH / SAM_COUNT;
 	var xSamFig = Math.ceil( x / perX );
