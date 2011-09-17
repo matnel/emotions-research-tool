@@ -27,7 +27,7 @@ body {
 }
 
 .marker {
-	position: absolute;
+	position: relative;
 	height: 5px;
 	width: 5px;
 	background: black;
@@ -36,7 +36,7 @@ body {
 .point {
 	min-height: 21px;
 	min-width: 0px;
-	position: absolute;
+	position: relative;
 	padding-left: 20px;
 	background-image: url('star.png');
 	background-repeat: no-repeat;
@@ -126,15 +126,15 @@ $('#map').click( function(event) {
 } );
 
 function fixX( x ) {
-	return x - $('#map-container').position().left - $('#map-wrapper').position().left - $('#wrapper-d').position().left;
+	return x - $('#map').position().left - $('#wrapper').position().left;
 }
 
 function fixY( y ) {
-	return y - $('#map-container').position().top -  $('#map-wrapper').position().top - $('#wrapper-d').position().top;
+	return y - $('#map').position().top - $('#wrapper').position().top;
 }
 
-$("#map").mousemove(function(event){
-	$('.sam').remove();
+$("#map").mousemove(function(event) {
+
         var x = fixX( event.pageX );
         var y = fixY( event.pageY );
 
@@ -148,8 +148,8 @@ $("#map").mousemove(function(event){
         var ySamFig = Math.ceil( y / perY );
 	ySamFig = SAM_COUNT + 1 - ySamFig;
 
-	$('#sam-arousal').attr( 'src', './sam/SAM-arousal-' + ySamFig + '.png' );
-	$('#sam-valence').attr( 'src', './sam/SAM-valenssi-' + xSamFig + '.png' )
+	$('#sam-arousal').attr( 'src', './imgs/sam/SAM-arousal-' + ySamFig + '.png' );
+	$('#sam-valence').attr( 'src', './imgs/sam/SAM-valenssi-' + xSamFig + '.png' )
 } );
 
 setTimeout( centralizePositions , 500 );
