@@ -4,22 +4,17 @@
 <script type='text/javascript' src='./lib/jquery.js' ></script>
 <script type='text/javascript' src='./lib/jquery-ui.js' ></script>
 <link type='text/css' rel='stylesheet' href='./lib/jquery-theme/smoothness/jquery-ui-1.8.7.custom.css' /> 
-<style>
-.explain {
-	font-size: 35px;
-	font-family: sans-serif;
-}
 
+<style>
 #infopane {
 	float: right;
-	margin-right: 200px;
-	margin-top: 200px;
+	margin-right: 20px;
+	margin-top: 20px;
 	background: #B0B0B0;
 }
 
 body {
 	font-family: sans-serif;
-	font-size: 30px;
 	background: #A0A0A0;
 }
 
@@ -42,7 +37,7 @@ body {
 }
 
 #wrapper {
-	width: 60%;
+	width: 80%;
 	background: white;
 }
 </style>
@@ -50,17 +45,10 @@ body {
 
 <div id='wrapper'>
 
-<div id='wrapper-d' style='width: 1174px; height: 756px; position: absolute; top: 250px; left: 250px; background-image: url("background.png");'>
-<div id='map-wrapper' style='position: relative; top: 78px; left: 270px;'>
-
-<!-- width & height set by background image -->
-<div id='map-container' style='width: 636px; height: 636px; margin: 0px;'>
-<img id='map' src='./emotions.png' ></img>
+<div id='map-container'>
+<div id='map'></div>
 <div id='markerX' class='marker'></div>
 <div id='markerY' class='marker'></div>
-</div>
-
-</div>
 </div>
 
 <div id='infopane'>
@@ -74,6 +62,7 @@ Tunnetilasi nyt <br/>
 </div>
 
 </div>
+
 </div>
 
 <script type='text/javascript'>
@@ -94,6 +83,7 @@ $('#map').click( function(event) {
 	div.append( 'Organisaation nimi <br/>' );
 	var name = $('<input>', { id: 'name' });
 	div.append( name );
+	div.append( '<br/>' );
 	div.append( 'Miksi?<br/>' );
 	var explain = $('<textarea>' , {id : 'explain' } );
 	div.append( explain );
@@ -111,6 +101,7 @@ $('#map').click( function(event) {
 	*/
 
 	div.dialog( {
+		width: 800,
 		buttons : {
 			'Valmis' : function(){
 				$(this).dialog('close');
@@ -165,8 +156,6 @@ function centralizePositions() {
 
 	HEIGHT = $('#map').height();
 	WIDTH = $('#map').width();
-
-// using a background image to do this
 /*
 	// set text indicator
 	var hints = [];
