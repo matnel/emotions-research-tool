@@ -37,7 +37,7 @@ body {
 .point {
 	min-height: 21px;
 	min-width: 0px;
-	position: relative;
+	position: absolute;
 	padding-left: 20px;
 	background-image: url('./imgs/star.png');
 	background-repeat: no-repeat;
@@ -85,8 +85,14 @@ $( function() {
 $('#map').click( function(event) {
 	var x = fixX( event.pageX );
 	var y = fixY( event.pageY );
+
 	var x0 = x - WIDTH / 2;
 	var y0 = (HEIGHT / 2) - y;
+
+	x = event.pageX; y = event.pageY;
+
+        console.log( x );
+
 	var div = $('<div>');
 	div.append( 'Organisaation nimi <br/>' );
 	var name = $('<input>', { id: 'name' });
@@ -99,15 +105,6 @@ $('#map').click( function(event) {
 	var point = $('<div>' , { class : 'point' } );
 	point.css( { 'top' : y, 'left' : x } );
 	$('#map').append( point );
-	
-	// debug-mode
-	/*
-	if( console ) {
-		alert('Omg. Moi Salla');
-		console.log( 'x ' + x + ' y ' + y );
-		console.log( 'x0 ' + x0 + ' y0 ' + y0 );
-	}
-	*/
 
 	div.dialog( {
 		width: 800,
