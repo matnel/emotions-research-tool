@@ -15,12 +15,10 @@
 }
 
 #map {
-	width: 400px;
-	height: 400px;
-	background: pink;
-	margin: 0px auto;
+	width: 636px;
+	height: 636px;
+	background: url('./imgs/background.png');
 	padding: 0px;
-	border-radius: 25px;
 }
 
 body {
@@ -92,8 +90,6 @@ $('#map').click( function(event) {
 
 	x = event.pageX; y = event.pageY;
 
-        console.log( x );
-
 	var div = $('<div>');
 	div.append( 'Organisaation nimi <br/>' );
 	var name = $('<input>', { id: 'name' });
@@ -134,8 +130,6 @@ function fixY( y ) {
 }
 
 $("#map").mousemove(function(event) {
-
-        console.log( event.pageX );
 
         var x = fixX( event.pageX );
         var y = fixY( event.pageY );
