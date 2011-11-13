@@ -10,7 +10,7 @@
 <div id='infopane'>
 
 <p>
-T&auml;m&auml; verkkopalvelu mittaa suomalaisten yrityksiä koskevia tunnekokemuksia ja tunnetiloja.
+T&auml;m&auml; verkkopalvelu mittaa suomalaisten yrityksi&auml; koskevia tunnekokemuksia ja tunnetiloja.
 </p>
 <p>
 Ajattele tietty&auml; yrityst&auml; ja pohdi, mink&auml;laisen tunnetilan kyseinen yritys sinussa her&auml;tt&auml;&auml;: positiivisen vai negatiivisen, kiihtyneen vai rauhallisen?
@@ -115,7 +115,7 @@ $("#map").mousemove(function(event) {
 	$('#sam-valence').attr( 'src', './imgs/sam/SAM-valenssi-' + xSamFig + '.png' )
 } );
 
-setTimeout( centralizePositions , 500 );
+centralizePositions();
 
 } );
 
@@ -138,7 +138,7 @@ function centralizePositions() {
 	$.each( yDir, function(y) {
 		$.each( xDir, function(x) {
 			var hint = hints[y][x];
-			hint = $('<span>', { html : hint , class : 'explain' } ).
+			hint = $('<span>', { html : hint } ). // , class : 'explain' } ).
 			appendTo('body').position( 
 				{ my : xDir[2-x] + ' ' + yDir[2-y], 
 				  at : xDir[x] + ' ' + yDir[y], 
