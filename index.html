@@ -9,10 +9,21 @@
 
 <div id='infopane'>
 
-<div>Loreum ipsulam</div>
+<p>
+T&auml;m&auml; verkkopalvelu mittaa suomalaisten yrityksiä koskevia tunnekokemuksia ja tunnetiloja.
+</p>
+<p>
+Ajattele tietty&auml; yrityst&auml; ja pohdi, mink&auml;laisen tunnetilan kyseinen yritys sinussa her&auml;tt&auml;&auml;: positiivisen vai negatiivisen, kiihtyneen vai rauhallisen?
+</p>
+<p>
+Kun kuljetat hiirt&auml; vasemmalla n&auml;kyv&auml;n nelikent&auml;n p&auml;&auml;ll&auml;, alla olevat kuvat auttavat sinua m&auml;&auml;rittelem&auml;&auml;n tunnekokemuksen laatua. 
+</p>
+<p>
+Kun l&ouml;yd&auml;t sopivan kohdan nelikent&auml;st&auml;, paina hiiren vasenta painiketta. Ruudulle avautuu lomake, johon voit sy&ouml;tt&auml;&auml; yrityksen nimen, sek&auml; perustella arviosi.
+</p>
 
 <div id='sam'>
-Tunnetilasi nyt <br/>
+Tunnetilasi nyt:<br/>
 <img id='sam-arousal' /> <br/>
 <img id='sam-valence' /> <br/>
 </div>
@@ -47,11 +58,11 @@ $('#map').click( function(event) {
 	x = event.pageX; y = event.pageY;
 
 	var div = $('<div>');
-	div.append( 'Organisaation nimi <br/>' );
+	div.append( 'Organisaation nimi:<br/>' );
 	var name = $('<input>', { id: 'name' });
 	div.append( name );
 	div.append( '<br/>' );
-	div.append( 'Miksi?<br/>' );
+	div.append( 'Perustelut:<br/>' );
 	var explain = $('<textarea>' , {id : 'explain' } );
 	div.append( explain );
 
