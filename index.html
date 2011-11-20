@@ -7,7 +7,7 @@
 <link type='text/css' rel='stylesheet' href='./style.css' />
 <body>
 
-<div id='container' style='padding-bottom: 25px;'>
+<div id='container' style='padding-bottom: 50px;'>
 
 <div id='infopane'>
 
@@ -142,7 +142,7 @@ function centralizePositions() {
 	$.each( yDir, function(y) {
 		$.each( xDir, function(x) {
 			var hint = hints[y][x];
-			hint = $('<span>', { html : hint } ). // , class : 'explain' } ).
+			hint = $('<span>', { html : hint, class : 'explain' } ).
 			appendTo('body').position( 
 				{ my : xDir[2-x] + ' ' + yDir[2-y], 
 				  at : xDir[x] + ' ' + yDir[y], 
