@@ -20,7 +20,8 @@
 }
 
 .explain {
-    font-family: 'custom', 'Arial', sans-serif;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
 }
 
 body {
