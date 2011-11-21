@@ -6,9 +6,9 @@
 #infopane {
         float: right;
         margin-right: 20px;
-        margin-top: 20px;
-        padding: 20px;
-        background: #ccc;
+        margin-top: 10px;
+        padding: 0px 20px;
+        border-left: 2px solid #ccc;
 	width: 20%;
 }
 
@@ -26,7 +26,7 @@
 
 body {
         font-family: sans-serif;
-        background: green;
+        background: grey;
 }
 
 .marker {
@@ -58,5 +58,6 @@ body {
 	width: 80%;
 	border: 1px solid blue;
 	background: #fff;
-	border-radius: 10px;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
 }
