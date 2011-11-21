@@ -67,11 +67,11 @@ $('#map').click( function(event) {
 
 	var div = $('<div>');
 	div.append( 'Organisaation nimi:<br/>' );
-	var name = $('<input>', { id: 'name' });
+	var name = $('<input>', { id: 'name', width: '90%' });
 	div.append( name );
 	div.append( '<br/>' );
 	div.append( 'Perustelut:<br/>' );
-	var explain = $('<textarea>' , {id : 'explain' } );
+	var explain = $('<textarea>' , {id : 'explain', width: '90%', height: '175px' } );
 	div.append( explain );
 
 	var point = $('<div>' , { class : 'point' } );
@@ -79,7 +79,7 @@ $('#map').click( function(event) {
 	$('#map').append( point );
 
 	div.dialog( {
-		width: 800,
+		width: 600,
 		buttons : {
 			'Valmis' : function(){
 				$(this).dialog('close');
@@ -87,7 +87,7 @@ $('#map').click( function(event) {
 				point.html( name.val() );
 				$.get( './datalog/log.php' , { x : x0 , y : y0, data : name.val() + '|' + explain.val(), debug : true } );
 			},
-			'Peru'   : function(){
+			'Peruuta' : function(){
 					$(this).dialog('close');
 					$(this).remove();
 					point.remove();
