@@ -9,6 +9,9 @@
 
 <div id='header'>
 <img src='./imgs/logo.png' />
+<span style='float: right;'>
+Koehenkil&ouml;: <input id='responder-id'></input>
+</span>
 </div>
 
 <div id='container' style='padding-bottom: 50px;'>
@@ -85,7 +88,7 @@ $('#map').click( function(event) {
 				$(this).dialog('close');
 				$(this).remove();
 				point.html( name.val() );
-				$.get( './datalog/log.php' , { x : x0 , y : y0, data : name.val() + '|' + explain.val(), debug : true } );
+				$.get( './datalog/log.php' , { x : x0 , y : y0, data : name.val() + '|' + explain.val() + '|' + $('#responder-id').val(), debug : true } );
 			},
 			'Peruuta' : function(){
 					$(this).dialog('close');
