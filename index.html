@@ -63,8 +63,8 @@ $('#map').click( function(event) {
 	var x = fixX( event.pageX );
 	var y = fixY( event.pageY );
 
-	var x0 = x - WIDTH / 2;
-	var y0 = (HEIGHT / 2) - y;
+	var x0 = x / WIDTH * 900;
+	var y0 = y / HEIGHT * 900;
 
 	x = event.pageX; y = event.pageY;
 
